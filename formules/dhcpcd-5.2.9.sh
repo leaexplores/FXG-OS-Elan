@@ -15,7 +15,7 @@ case $1 in
 	if [ ! -f $DIR/sources/dhcpcd-5.2.9.tar.gz ]
 	then
 		cd $DIR/sources
-		wget http://cl.ly/6YIY/nano-2.2.6.tar.gz
+		wget http://cl.ly/6Y40/dhcpcd-5.2.9.tar.gz
 	fi
 #Depaquetage des sources et installation
 	echo "Depaquetage des sources"

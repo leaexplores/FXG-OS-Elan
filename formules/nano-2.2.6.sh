@@ -24,6 +24,10 @@ case $1 in
 	make install
 #Ajoute le logiciels a la liste de paquets installes
 	echo "nano-2.2.6 0" >> $DIR/logiciels_db
+	echo "Ajout du profil nanorc pour l'utilisateur root. Refaire le lien pour les autres users. Commande \"ln -s /etc/nanorc ~/.nanorc\""
+	cp $DIR/cellule/nano-2.2.6/doc/nanorc.sample /etc/nanorc
+	sed -i "s/^#//" /etc/nanorc
+	ln -sv /etc/nanorc ~/.nanorc
 	echo "Le $2 a ete installe avec succes"
 	;;
 #Deinstallation du paquet.
@@ -43,6 +47,9 @@ case $1 in
 	echo "Retire le dossier des sources"
 	cd $DIR
 	rm -r $DIR/cellule/nano-2.2.6
+	rm /etc/nanorc
+	echo "Retrait du ~/.nanorc pour l'utilisateur actuel veuillez aller le retirer pour les autres utilisateurs avec la commande \"rm ~/.nanorc\""
+	rm ~/.nanorc
 	grep -v "nano-2.2.6 0" $DIR/logiciels_db > $DIR/logiciels_db
 	;;
 #Repond l'index de version pour l'update.Utiliser pour savoir si le gestionaire de paquet doit updater ou non. 0 pour la premiere release du packet. 1 la 2e 2 la 3e...

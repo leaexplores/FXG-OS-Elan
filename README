@@ -2,7 +2,7 @@ Elan gestionaire de paquet de FXG-OS.
 ======================================
 Fonctionalites qui marchent : install, uninstall, description, fix-perms
 
-Installation de Élan
+Installation de Elan
 =====================
 Ne pas oublier de deplacer et modifier le fichier directory.sh a l'interieur de /etc/elan/
 Le script d'installation pour que elan install fonctionne est a faire!

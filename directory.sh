@@ -4,4 +4,3 @@
 # Quebec, Quebec, Canada
 # Mai 2011
 # !/bin/bash
-echo "/root/elan_gestionaireDePaquets"

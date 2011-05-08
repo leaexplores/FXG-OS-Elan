@@ -23,6 +23,10 @@ case $1 in
 	;;
 #Fonction pour installer le packet.
 	"install")
+#Verifie si le paquet existe sinon affiche un message.
+		ls $DIR/formules/$2.sh 1>/dev/null 2>/dev/null
+		if [ "`echo $?`" = 0 ]
+		then
 #Recherche si le packet est dans la base de donnees des installes
 #Variable RECHERCHE pour verifier si le fichier existe et la version a l'interieur de la db.
 		RECHERCHE=`cat $DIR/logiciels_db | grep "$2" | awk '{print $1}'`
@@ -45,6 +49,20 @@ case $1 in
 				$DIR/formules/$2.sh install
 				echo "Installation reussi!"
 		fi
+		else
+			echo "Le paquet $2 n'existe pas!"	
+#Verification si la recherche trouvera un quelque chose
+			ls $DIR/formules/$2* 1>/dev/null 2>/dev/null
+			if [ "`echo $?`" = 0 ]
+			then
+			echo "Vous pourriez installer :"
+#Affichage d'une recherche avec le nom du paquet				
+			for i in $( ls $DIR/formules/$2* ); do
+			echo ""
+			sh $i desc
+			done
+			fi
+		fi
 	;;
 #Fonction pour desinstaller le packet.
 	"uninstall")
@@ -57,6 +75,21 @@ case $1 in
 		else
 			echo "Le paquet n'est pas present sur le systeme"
 		fi
+	;;
+	"search")
+	#Test si il trouve des paquets avant de rentrer dans la boucle
+	ls $DIR/formules/$2* 1>/dev/null 2>/dev/null
+	if [ "`echo $?`" = 0 ]
+	then
+		echo "Les resultat de la recherche sont"
+		for i in $( ls $DIR/formules/$2* ); do
+			echo ""
+			sh $i desc
+		done
+		echo ""
+	else
+		echo "Aucun paquet trouve"
+	fi
 	;;
 #Fonction qui permet de reparer les permissions des formules.
 	"fix-perms")

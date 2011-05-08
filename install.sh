@@ -6,7 +6,7 @@
 directory=`pwd`
 
 echo "======================================="
-echo "Installation de Elan : Package Menager"
+echo "Installation de Elan : Package Manager"
 echo "======================================="
 
 # Demande a l'usager s'il desire enregistrer dans /usr/local/elan ou s'il desire garder l'installation dans son repertoire

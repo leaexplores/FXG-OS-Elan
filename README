@@ -4,8 +4,7 @@ Fonctionalites qui marchent : install, uninstall, description, fix-perms, search
 
 Installation de Elan
 =====================
-Ne pas oublier de deplacer et modifier le fichier directory.sh a l'interieur de /etc/elan/
-Le script d'installation pour que elan install fonctionne est a faire!
+Utilisez install.sh.
 
 Utilisation de elan.
 ============================

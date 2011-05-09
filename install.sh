@@ -27,7 +27,7 @@ then
 	if [ $repdefault = 'o' ]
 	then
 		echo "Enregistrement du repertoire principal"
-		echo "echo \"/usr/local/elan/\"" >> directory.sh	
+		echo "echo \"/usr/local/elan\"" >> directory.sh	
 		echo "Creation du repertoire principal"
 		mkdir /usr/local/elan/
 		echo "Deplacement de la redirection vers le repertoire d'elan"

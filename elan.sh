@@ -3,7 +3,6 @@
 # Location : Quebec, Quebec, Canada
 # Mai 2011
 #!/bin/bash
-
 # Va chercher le repertoire ou elan est installe grace au script.
 # Allez le modifier au besoin.
 DIR=`sh /etc/elan/directory.sh`
@@ -67,20 +66,32 @@ case $1 in
 #Fonction pour desinstaller le packet.
 	"uninstall")
 		RECHERCHE_DEL=`cat $DIR/logiciels_db | grep "$2" | awk '{print $1}'`
-		if [ "$RECHERCHE_DEL" != "" ]
+		if [ "$RECHERCHE_DEL" = "$2" ]
 		then
 			echo "Debut de la deinstallation de $2."
 			$DIR/formules/$2.sh uninstall
 			echo "Deinstallation termine"
 		else
 			echo "Le paquet n'est pas present sur le systeme"
+			ls $DIR/formules/$2* 1>/dev/null 2>/dev/null
+		if [ "`echo $?`" = 0 ]
+		then
+			echo "Vous pourriez deinstaller :"
+#Affichage d'une recherche avec le nom du paquet				
+			for i in $( ls $DIR/formules/$2* ) 
+			do
+			echo ""
+			sh $i desc
+			done
 		fi
+	fi
 	;;
 	"search")
 	#Test si il trouve des paquets avant de rentrer dans la boucle
 	ls $DIR/formules/$2* 1>/dev/null 2>/dev/null
 	if [ "`echo $?`" = 0 ]
 	then
+		echo ""
 		echo "Les resultat de la recherche sont"
 		for i in $( ls $DIR/formules/$2* ); do
 			echo ""
@@ -88,6 +99,7 @@ case $1 in
 		done
 		echo ""
 	else
+#Verification si la recherche trouvera un quelque chose
 		echo "Aucun paquet trouve"
 	fi
 	;;
@@ -102,6 +114,6 @@ case $1 in
 	echo "Utilisation de elan."
 	echo "============================"
 	echo "elan [option] nom_du_package"
-	echo "Options possible : uninstall, install, description, search, fix-perms"
+	echo "Options possible : packages-installed, uninstall, install, description, search, fix-perms"
 	;;
 esac

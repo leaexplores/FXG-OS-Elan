@@ -16,7 +16,7 @@ case $1 in
 	if [ ! -f $DIR/sources/openssl-1.0.0d.tar.bz2 ]
 	then
 		cd $DIR/sources
-		wget http://cl.ly/2P1s062k1U0u3s00y2Z3W/openssl-1.0.0d.tar.bz2
+		wget http://cl.ly/2z0r1l3V0W1W0g0X2c1S/openssl-1.0.0d.tar.bz2
 	fi
 # Depaquetage des sources et installation
 	echo "Depaquetage des sources"

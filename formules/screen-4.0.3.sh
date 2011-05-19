@@ -28,9 +28,8 @@ case $1 in
     ;;
 # Desinstallation du paquet.
     "uninstall")
-    cd $DIR/cellule/screen*
 # si le dossier n'existe pas !
-    if ((`echo $?` != "0"))
+    if [ ! -d $DIR/sources/screen-4.0.3 ]
     then
 	if [ ! -f $DIR/sources/screen-4.0.3.tar.bz2 ]
 	then
@@ -39,6 +38,7 @@ case $1 in
 	fi
 	tar -xf $DIR/sources/screen-4.0.3.tar.bz2 -C $DIR/cellule
     fi
+    cd $DIR/cellule/screen-4.0.3
     make uninstall
     echo "Retire le dossier des sources"
     cd $DIR

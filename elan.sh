@@ -103,6 +103,23 @@ case $1 in
 		echo "Aucun paquet trouve"
 	fi
 	;;
+#Liste les paquets installe.
+	"packages-installed")
+	echo "Les paquets present sur le systeme sont"
+	cat $DIR/logiciels_db | awk '{print $1}'
+	;;
+#Liste les dependances du paquet.
+#Le paquet dois le supporter.
+	"list-dep")
+	grep "list-dep" $DIR/formules/$2.sh 1>/dev/null 2>/dev/null
+	if [ "`echo $?`" = 0 ]
+	then
+		sh $DIR/formules/$2.sh list-dep
+	else
+		echo "Le paquet que vous tentez d'obtenir les dependances ne supporte pas le mode list-dep de elan ou n'existe pas."	
+	fi
+
+	;;
 #Fonction qui permet de reparer les permissions des formules.
 	"fix-perms")
 	echo "Reparation des permissions des formules en cours."

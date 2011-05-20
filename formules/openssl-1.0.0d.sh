@@ -30,7 +30,7 @@ case $1 in
 	;;
 	"uninstall")
 	rm -rf /usr/local/ssl
-	grep -v "openssl-1.0.0d 0" $DIR/logiciels_db > $DIR/logiciels_db
+	grep -v "openssl-1.0.0d 0" $DIR/logiciels_db > $DIR/logiciels_db2 && mv logiciels_db2 logiciels_db
 	sed -i 's/export PATH=\/usr\/local\/ssl\/bin:/export PATH=/' /etc/profile
 	if [ -d $DIR/cellule/openssl-1.0.0d ]
 	then

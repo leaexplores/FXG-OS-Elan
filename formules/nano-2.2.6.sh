@@ -50,7 +50,7 @@ case $1 in
 	rm /etc/nanorc
 	echo "Retrait du ~/.nanorc pour l'utilisateur actuel veuillez aller le retirer pour les autres utilisateurs avec la commande \"rm ~/.nanorc\""
 	rm ~/.nanorc
-	grep -v "nano-2.2.6 0" $DIR/logiciels_db > $DIR/logiciels_db
+	grep -v "nano-2.2.6 0" $DIR/logiciels_db > $DIR/logiciels_db2 && mv logiciels_db2 logiciels_db
 	;;
 #Repond l'index de version pour l'update.Utiliser pour savoir si le gestionaire de paquet doit updater ou non. 0 pour la premiere release du packet. 1 la 2e 2 la 3e...
 	"var_update")

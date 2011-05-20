@@ -44,7 +44,7 @@ case $1 in
 		echo "Retire le dossier des sources"
 		cd $DIR
 		rm -r $DIR/cellule/wget-1.12
-		grep -v "wget-1.12 0" $DIR/logiciels_db > $DIR/logiciels_db
+		grep -v "wget-1.12 0" $DIR/logiciels_db > $DIR/logiciels_db2 && mv logiciels_db2 logiciels_db
 	;;
 # Repond l'index de version l'update. Utiliser pour savoir si le gestionnaire de paquet doit update ou non. 0 pour la premiere release du paquet. 1 la 2e, 2 la 3e...
 	"var_update")

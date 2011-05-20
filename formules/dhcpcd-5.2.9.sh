@@ -45,7 +45,7 @@ case $1 in
 	rm -v /usr/local/share/man/man8/dhcpcd.8
 	rm -v /usr/local/share/man/man5/dhcpcd.conf.5	
 	echo "Retire le dossier des sources"
-	grep -v "dhcpcd-5.2.9 0" $DIR/logiciels_db > $DIR/logiciels_db
+	grep -v "dhcpcd-5.2.9 0" $DIR/logiciels_db > $DIR/logiciels_db2 && mv logiciels_db2 logiciels_db
 	;;
 #Repond l'index de version pour l'update.Utiliser pour savoir si le gestionaire de paquet doit updater ou non. 0 pour la premiere release du packet. 1 la 2e 2 la 3e...
 	"var_update")

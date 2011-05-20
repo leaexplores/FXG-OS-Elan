@@ -43,7 +43,7 @@ case $1 in
     echo "Retire le dossier des sources"
     cd $DIR
     rm -r $DIR/cellule/screen-4.0.3
-    grep -v "screen-4.0.3 0" $DIR/logiciels_db > $DIR/logiciels_db
+    grep -v "screen-4.0.3 0" $DIR/logiciels_db > $DIR/logiciels_db2 && mv logiciels_db2 logiciels_db
     ;;
 # Repond a l'index de version pour l'update. utiliser pour savoir si le gestionnaire de paquet doit updater ou non. 0 pour la premiere release du packet. 1 la 2e 2 la 3e...
     "var_update")

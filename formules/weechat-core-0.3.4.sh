@@ -22,7 +22,6 @@ case $1 in
 	echo "Depaquetage des sources"
 	tar -xf $DIR/sources/weechat-core-0.3.4.tar.gz -C $DIR/cellule
 #Installation des dependances puis de Weechat
-	elan install wget-1.12
 	elan install openssl-1.0.0d
 	elan install openssh-5.8p2
 	cd $DIR/cellule/weechat-0.3.4
@@ -32,7 +31,6 @@ case $1 in
 	echo "Le $2 a ete installe avec succes"
 	;;
 	"list-dep")
-	echo "wget-1.12"
 	echo "openssl-1.0.0d"
 	echo "openssh-5.8p2"
 	;;

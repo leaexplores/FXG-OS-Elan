@@ -48,3 +48,11 @@ case $1 in
 	grep -v "acpitool-0.5.1 0" $DIR/logiciels_db > $DIR/logiciels_db
 	;;
 # Repond l'index de version pour l'update. Utiliser pour savoir si le gestionnaire de paquet doit updater ou non. 0 pour la premiere relsea du paquet. 1 la 2e, 2 la 3e...
+    "var_update")
+	echo "0"
+	;;
+    *)
+	echo "Parametre invalide"
+	;;
+esac
+    

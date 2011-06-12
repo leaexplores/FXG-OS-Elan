@@ -2,7 +2,7 @@
 # Mai 2011
 # Quebec, Quebec, Canada
 #!/bin/bash
-DIR=`sh /etc/elan/directory.sh"`
+DIR=`sh /etc/elan/directory.sh`
 case $1 in
 # Affiche la description du paquet.
     "desc")

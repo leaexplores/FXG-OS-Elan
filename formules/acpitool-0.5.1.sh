@@ -16,8 +16,8 @@ case $1 in
 	    then
 	    cd $DIR/sources
 	    wget www.cl.ly/2Y3b2I2I3z1C0C0L350S/acpitool-0.5.1.tar.xz
-	    fi
-
+	fi
+    ;;
 # Depaquetage des sources et installation
 	echo "Depaquetage des sources"
 	tar -xf $DIR/sources/acpitool-0.5.1.tar.xz -C $DIR/cellule
@@ -27,7 +27,6 @@ case $1 in
 	echo "acpitool-0.5.1 0" >> $DIR/logiciels_db
 	echo "Le $2 a ete installe avec succes"
 	;;
-
 # Desinstallation du paquet.
     "uninstall")
 	cd $DIR/cellule/acpitool*
